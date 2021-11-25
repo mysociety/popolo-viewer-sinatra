@@ -21,6 +21,15 @@ describe 'House Page' do
     end
   end
 
+  describe 'when displaying democratic commons footer' do
+    let(:link) { subject.css('.demo-commons-promo') }
+    before     { get '/australia/representatives/' }
+
+    it 'should link to mySociety Democratic Commons page' do
+      link.css('a').last[:href].must_equal 'https://www.mysociety.org/democracy/democratic-commons/'
+    end
+  end
+
   describe 'HTML validation' do
     it 'has no errors in the house page' do
       last_response_must_be_valid

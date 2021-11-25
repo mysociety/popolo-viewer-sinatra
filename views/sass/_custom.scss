@@ -115,6 +115,15 @@
   }
 }
 
+.homepage__info-links {
+    .column-one-third {
+        margin-bottom: 2em;
+        @media (min-width: $large_screen) {
+            margin-bottom: 0;
+        }
+    }
+}
+
 .party-groupings__title {
     font-size: 0.875em;
     margin-bottom: 1.5em;
@@ -167,55 +176,17 @@
     }
 }
 
-// My kingdom for a parent selector in CSS!
-// Add some extra margin above the promo section because the screencast
-// sticks out and it feels a bit tight against the previous section.
-.page-section--gender-balance-promo {
+.page-section--demo-commons-promo {
     @media (min-width: $medium_screen) {
-        margin-top: 2em;
         padding: 3em 0;
     }
 }
 
-.gender-balance-promo {
-    @media (min-width: $medium_screen) {
-        position: relative; // positioning context for the demo gif
-        padding-left: 340px; // make space for the demo gif
-        max-width: 44em; // avoid silly long lines
-        margin: 0 auto; // centred when the window is wide
-    }
-
-    p {
-        margin-bottom: 0; // avoid extra space after last paragraph
-    }
-
-    p + p {
-        margin-top: 1em;
-    }
-}
-
-.gender-balance-promo__demo {
-    display: block; // because it's actually an <a> element
-    position: relative;
-    bottom: -2em; // counteract padding-bottom on .page-section
-
-    @media (min-width: $medium_screen) {
-        position: absolute;
-        left: 0;
-        bottom: -3em;
-    }
-}
-
-.screenshot-wrapper {
-    background: transparent url(/images/iphone.png) 0 0 no-repeat;
-    padding: 70px 24px 0 24px;
-    margin: 0 auto;
-    width: 280px;
-
-    img {
-        width: 232px;
-        height: 330px;
-        vertical-align: bottom;
+.demo-commons-promo {
+    //Bare-bones promo for now, there's room for a logo or graphics when they exist
+    max-width: 40em; // avoid silly long lines
+    a {
+        text-decoration: underline;
     }
 }
 
