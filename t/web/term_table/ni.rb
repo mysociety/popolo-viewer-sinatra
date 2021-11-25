@@ -32,9 +32,21 @@ describe 'Northern Ireland' do
     end
 
     it 'should start with a placeholder image, but have proxy set' do
-      img = annalo.css('img.person-card__image')
+      img = annalo.css('img.person-card__image')[0]
+      img.attr('src').must_equal '/images/person-placeholder-108px.png'
+      img.attr('data-src').must_include 'politician-image-proxy'
+    end
+
+    it 'should have an image if JavaScript is disabled' do
+      img = annalo.css('img.person-card__image')[1]
+      img.attr('src').must_include 'politician-image-proxy'
+      img.attr('data-src').must_be_nil
+    end
+
+    it 'has only a placeholder image if the person has no image' do
+      img = mcquillan.css('img.person-card__image')
+      img.size.must_equal 1
       img.attr('src').text.must_equal '/images/person-placeholder-108px.png'
-      img.attr('data-src').text.must_include 'politician-image-proxy'
     end
   end
 end
