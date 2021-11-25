@@ -154,10 +154,13 @@
                                 <img src="/images/person-placeholder-108px.png"
                                      data-src="<%= person.proxy_image %>"
                                      style="display: none"
-                                     class="person-card__image">
-                                <noscript><img src="<%= person.proxy_image %>" class="person-card__image"></noscript>
+                                     class="person-card__image"
+                                     alt="Member headshot for <%= escape_html(person.name) %>">
+                                <noscript><img src="<%= person.proxy_image %>" class="person-card__image"
+                                alt="Member headshot for <%= escape_html(person.name) %>"></noscript>
                               <% else %>
-                                <img src="/images/person-placeholder-108px.png" class="person-card__image">
+                                <img src="/images/person-placeholder-108px.png" class="person-card__image"
+                                alt="Placeholder image for <%= escape_html(person.name) %>">
                               <% end %>
 
                                 <h3 class="person-card__name"><%= person.name %></h3>
