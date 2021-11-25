@@ -1,4 +1,4 @@
-<select class="field js-select-to-autocomplete" placeholder="Search by country name" name="Country" id="country-selector" autofocus="autofocus" autocorrect="off" autocomplete="off">
+<select class="field js-select-to-autocomplete" name="Country" id="country-selector" autofocus="autofocus">
     <option value="" selected="selected">Select Country</option>
   <% @page.all_countries.each do |country| %>
     <option value="<%= country.slug %>" data-alternative-spellings="<%= country.names %>" title="<%= commify(country.total_people) %> <% if country.total_people == 1 %>person<% else %>people<% end %>"><%= country.name %></option>

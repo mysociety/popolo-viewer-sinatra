@@ -461,15 +461,25 @@ $(function(){
   });
 
   // http://baymard.com/labs/country-selector
-  $('.js-select-to-autocomplete').selectToAutocomplete().on('change', function(){
-    var v = $(this).val();
-    if (v) {
-      // Assumes the <option>'s `value` attribute is a URL slug for the country
-      window.location.href = '/' + v + '/';
-    }
-  }).on('focus', function(){
-    $(this).next().trigger("focus");
-  });
+  var $placeholder = $('#js-placeholder');
+  $('.js-select-to-autocomplete')
+    .attr({
+      placeholder:  $placeholder.text(),
+      autocorrect:  'off',
+      autocomplete: 'off'
+    })
+    .selectToAutocomplete()
+    .on('change', function(){
+      var v = $(this).val();
+      if (v) {
+        // Assumes the <option>'s `value` attribute is a URL slug for the country
+        window.location.href = '/' + v + '/';
+      }
+    })
+    .on('focus', function(){
+      $(this).next().trigger("focus");
+    });
+  $placeholder.attr('class', 'hidden')
 
   // Fix the incorrect default autocomplete width, which meant that
   // autocomplete menu was longer than the search input it's linked to.
