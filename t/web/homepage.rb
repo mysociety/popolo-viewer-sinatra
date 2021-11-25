@@ -15,8 +15,8 @@ describe 'Homepage' do
     subject.css('.hero h1').text.must_include '233 countries'
   end
 
-  it 'should have the global data count' do
-    subject.css('.homepage-data-example strong').text.must_include '3.2 million'
+  it 'should talk about Wikidata' do
+    subject.css('.homepage-data-example').text.must_include 'Wikidata'
   end
 
   it 'should offer the whole world in the dropdown' do
